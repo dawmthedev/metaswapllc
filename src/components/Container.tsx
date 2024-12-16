@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import { useRouter } from "next/router";
 import Preloader from "@/components/Preloader";
 import styles from "@/styles/Container.module.css";
+import Image from "next/image";
 
 type IconProps = {
   ["data-hide"]: boolean;
@@ -41,6 +42,7 @@ const navLinks = [
   { href: "#about", text: "About" },
   { href: "#projects", text: "Projects" },
   { href: "#services", text: "Services" },
+  { href: "/contact", text: "Contact" },
 ];
 
 function handleClick(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
@@ -82,9 +84,9 @@ export default function Container(props: ContainerProps) {
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {
-    title: "Wendo",
+    title: "Metaswap",
     description: `Full-stack website developer and TypeScript enthusiast.`,
-    image: "/assets/logo.webp",
+    image: "/assets/Metaswap.png",
     type: "website",
     ...customMeta,
   };
@@ -127,12 +129,12 @@ export default function Container(props: ContainerProps) {
           href={`https://www.wendoj.codes${router.asPath}`}
         />
         <meta property="og:type" content={meta.type} />
-        <meta property="og:site_name" content="WendoJ" />
+        <meta property="og:site_name" content="Metaswap" />
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:image" content={meta.image} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="WendoJ" />
+        <meta name="twitter:site" content="MetaswapLLC" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
@@ -163,7 +165,14 @@ export default function Container(props: ContainerProps) {
           </button>
         </div>
         <Link href="/">
-          <span className="text-lg font-semibold">wendo</span>
+          <Image
+            src="/assets/Metaswap.png"
+            alt="Metaswap"
+            width={100} // Adjust the width as needed
+            height={100} // Adjust the height as needed
+            className="h-auto w-auto"
+            style={{ marginLeft: "20px" }}
+          />
         </Link>
 
         {/* Desktop menu */}
@@ -220,7 +229,7 @@ export default function Container(props: ContainerProps) {
                 {/* Footer */}
                 <div className="flex min-h-fit w-full flex-col space-y-8 px-[22px] py-10">
                   <span className="text-sm text-muted-foreground">
-                    © {new Date().getFullYear()} wendo. All rights reserved.
+                    © {new Date().getFullYear()} metaswap. All rights reserved.
                   </span>
                 </div>
               </div>
