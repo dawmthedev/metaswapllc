@@ -1,21 +1,32 @@
-import { type AppType } from "next/dist/shared/lib/utils";
+// filepath: src/pages/_app.tsx
+import type { AppProps } from "next/app";
+import { useEffect } from "react";
+import "@/styles/Globals.css";
 
-import "@/styles/globals.css";
-import "@/styles/locomotive-scroll.css";
+export default function App({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />;
+}
 
-import { DM_Sans } from "next/font/google";
+//working
 
-const dmSans = DM_Sans({
-  display: "swap",
-  subsets: ["latin"],
-});
+// import { type AppType } from "next/dist/shared/lib/utils";
 
-const MyApp: AppType = ({ Component, pageProps }) => {
-  return (
-    <div lang={"en"} className={dmSans.className}>
-      <Component {...pageProps} />
-    </div>
-  );
-};
+// import "@/styles/globals.css";
+// import "@/styles/locomotive-scroll.css";
 
-export default MyApp;
+// import { DM_Sans } from "next/font/google";
+
+// const dmSans = DM_Sans({
+//   display: "swap",
+//   subsets: ["latin"],
+// });
+
+// const MyApp: AppType = ({ Component, pageProps }) => {
+//   return (
+//     <div lang={"en"} className={dmSans.className}>
+//       <Component {...pageProps} />
+//     </div>
+//   );
+// };
+
+// export default MyApp;

@@ -1,15 +1,18 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './src/**/*.{ts,tsx}',
-	],
+    "./src/**/*.{ts,tsx}", // Include all TypeScript files in the src directory
+    "./pages/**/*.{ts,tsx}", // Include all TypeScript files in the pages directory
+    "./components/**/*.{ts,tsx}", // Include all TypeScript files in the components directory
+    "./app/**/*.{ts,tsx}", // Include all TypeScript files in the app directory
+  ],
   prefix: "",
   theme: {
     container: {
       center: true,
-        padding: "1rem",
+      padding: "1rem",
       screens: {
         "2xl": "1400px",
       },
@@ -72,6 +75,6 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;

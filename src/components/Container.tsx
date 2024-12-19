@@ -4,10 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn, scrollTo } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import Footer from "@/components/Footer";
-import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
+
 import Preloader from "@/components/Preloader";
 import styles from "@/styles/Container.module.css";
 import Image from "next/image";
+
+// Disable SSR for the Container component
 
 type IconProps = {
   ["data-hide"]: boolean;
@@ -82,7 +85,6 @@ export default function Container(props: ContainerProps) {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const { children, ...customMeta } = props;
-  const router = useRouter();
   const meta = {
     title: "Metaswap",
     description: `Full-stack website developer and TypeScript enthusiast.`,
@@ -120,14 +122,8 @@ export default function Container(props: ContainerProps) {
         <meta name="robots" content="follow, index" />
         <meta name="theme-color" content="#7B82FE" />
         <meta content={meta.description} name="description" />
-        <meta
-          property="og:url"
-          content={`https://www.wendoj.codes${router.asPath}`}
-        />
-        <link
-          rel="canonical"
-          href={`https://www.wendoj.codes${router.asPath}`}
-        />
+        <meta property="og:url" content="https://www.metaswapllc.com" />
+        <link rel="canonical" href="https://www.metaswapllc.com" />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="Metaswap" />
         <meta property="og:description" content={meta.description} />

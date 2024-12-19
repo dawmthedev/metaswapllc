@@ -1,11 +1,18 @@
-import * as React from "react";
-import { cn } from "@/lib/utils";
+// filepath: /src/components/ui/textarea.tsx
+import React from "react";
 
-export interface TextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+// filepath: /src/components/ui/textarea.tsx
+// ...existing code...
+type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
+// ...existing code...
+// export interface TextareaProps
+//   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, ...props }, ref) => {
+    function cn(...classes: (string | undefined)[]): string {
+      return classes.filter(Boolean).join(" ");
+    }
     return (
       <textarea
         className={cn(
