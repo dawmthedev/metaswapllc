@@ -39,5 +39,5 @@
     "**/*.css",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "public"]
+  "exclude": ["node_modules", "public", ".next", "out"]
 }
