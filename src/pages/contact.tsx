@@ -14,6 +14,7 @@ export default function Contact() {
     name: "",
     email: "",
     message: "",
+    services: [] as string[],
   });
 
   useEffect(() => {
@@ -73,6 +74,47 @@ export default function Contact() {
           life. Let&apos;s build something amazing together.
         </p>
         <form onSubmit={handleSubmit} className="w-full max-w-lg space-y-6">
+
+        <div className="space-y-2">
+          <label className="text-sm font-medium">Services</label>
+          <div className="space-y-2 p-2 border rounded bg-white bg-opacity-10">
+            {[
+              "Software development",
+              "UI/UX",
+              "Project Management",
+              "Consulting",
+            ].map((service) => (
+              <div key={service} className="flex items-center space-x-2">
+          <input
+            type="checkbox"
+            id={service}
+            checked={formData.services.includes(service)}
+            onChange={(e) => {
+              if (e.target.checked) {
+                setFormData({
+            ...formData,
+            services: [...formData.services, service],
+                });
+              } else {
+                setFormData({
+            ...formData,
+            services: formData.services.filter((s) => s !== service),
+                });
+              }
+            }}
+            className="w-4 h-4"
+          />
+          <label htmlFor={service} className="text-sm">
+            {service}
+          </label>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-muted-foreground mt-1">
+            Currently selected: {formData.services.join(", ") || "None"}
+          </p>
+        </div>
+
           <div className="space-y-2">
             <label htmlFor="name" className="text-sm font-medium">
               Name
