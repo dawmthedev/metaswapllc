@@ -12,7 +12,7 @@ const nextConfig = {
   ...(isProd
     ? {
         basePath: "/metaswapllc",
-        assetPrefix: "/metaswapllc/",
+        assetPrefix: "/metaswapllc",
       }
     : {}),
   // webpack: (config: Configuration, { buildId, dev, isServer, defaultLoaders, webpack }) => {

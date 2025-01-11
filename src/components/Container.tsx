@@ -160,7 +160,7 @@ export default function Container(props: ContainerProps) {
             <CrossIcon data-hide={!isOpen} />
           </button>
         </div>
-        <Link href="/">
+        {/* <Link href="/">
           <Image
             src="/assets/Metaswap.png"
             alt="Metaswap"
@@ -169,8 +169,13 @@ export default function Container(props: ContainerProps) {
             className="h-auto w-auto"
             style={{ marginLeft: "20px" }}
           />
-        </Link>
+        </Link> */}
 
+
+        <div 
+          className="h-12 w-24 bg-sky-200 rounded-md ml-5"
+          style={{ minWidth: '100px' }}
+        />
         {/* Desktop menu */}
         <ul className={styles["desktop-nav"]}>
           {navLinks.map((link, i) => (

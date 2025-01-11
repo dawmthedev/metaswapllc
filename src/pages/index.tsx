@@ -28,9 +28,10 @@ import VanillaTilt from "vanilla-tilt";
 import { motion } from "framer-motion";
 
 const aboutStats = [
-  { label: "Years of experience", value: "3+" },
-  { label: "Technologies mastered", value: "5+" },
-  { label: "Companies worked with", value: "15+" },
+  { label: "Years of Experience", value: "4+" },
+  { label: "Projects Delivered", value: "300+" },
+  { label: "Global Clients", value: "150+" },
+ 
 ];
 
 const projects = [
@@ -206,7 +207,7 @@ export default function Home() {
                   <br />
                 </span>
                 <span className="clash-grotesk text-gradient text-6xl 2xl:text-8xl">
-                  Metaswap
+                  Unhash Labs
                 </span>
               </h1>
               <p
@@ -215,7 +216,7 @@ export default function Home() {
                 data-scroll-speed=".06"
                 className="mt-1 max-w-lg tracking-tight text-muted-foreground 2xl:text-xl"
               >
-                An experienced full-stack website developer with a passion for
+                An experienced full-stack web agency  with a passion for
                 crafting unique digital experiences.
               </p>
             </div>
@@ -268,36 +269,71 @@ export default function Home() {
             data-scroll-position="top"
             className="my-14 flex max-w-6xl flex-col justify-start space-y-10"
           >
-            <h2 className="py-16  pb-2 text-3xl font-light leading-normal tracking-tighter text-foreground xl:text-[40px]">
-              I&apos;m an experienced full-stack developer proficient in{" "}
-              <Link
-                href="https://create.t3.gg/"
-                target="_blank"
-                className="underline"
-              >
-                TypeScript, Tailwind, and Next.js
-              </Link>{" "}
-              since 2021. My experience spans from startups to mid-sized
-              companies, where I&apos;ve been instrumental in the entire product
-              design process; from ideation and wireframing, through
-              prototyping, to the delivery of the final product, all while
-              efficiently collaborating with cross-functional teams.
-            </h2>
-            <div className="grid grid-cols-2 gap-8 xl:grid-cols-3">
-              {aboutStats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="flex flex-col items-center text-center xl:items-start xl:text-start"
-                >
-                  <span className="clash-grotesk text-gradient text-4xl font-semibold tracking-tight xl:text-6xl">
-                    {stat.value}
-                  </span>
-                  <span className="tracking-tight text-muted-foreground xl:text-lg">
-                    {stat.label}
-                  </span>
-                </div>
+            <motion.h2 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="py-16 pb-2 text-3xl font-light leading-normal tracking-tighter text-foreground xl:text-[40px]"
+            >
+              We are a cutting-edge full-stack development agency specializing in{" "}
+          <motion.span 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="inline-flex flex-wrap gap-1.5"
+          >
+          {[
+            "software development",
+            "corporate solutions",
+            "UI/UX design",
+            "cloud architecture",
+            "digital transformation",
+          ].map((text, index) => (
+            <motion.span 
+              key={text}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 + (index * 0.1), duration: 0.5 }}
+              className="flex items-center"
+            >
+              <span className="mr-2 text-primary">•</span>
+              <span className="cursor-pointer border-b border-current transition-all duration-200 hover:scale-105 hover:font-bold hover:text-blue-500">
+                {text}
+              </span>
+            </motion.span>
+          ))}
+          </motion.span>{" "}
+
+              technologies. Since 2021, we've partnered with startups and
+              established businesses to deliver exceptional digital solutions.
+              Our team excels in end-to-end product development, from strategic
+              planning and design to implementation and deployment, ensuring
+              seamless collaboration and outstanding results for our clients.
+            </motion.h2>
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+              className="grid grid-cols-2 gap-8 xl:grid-cols-3"
+            >
+              {aboutStats.map((stat, index) => (
+          <motion.div
+            key={stat.label}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1 + (index * 0.1), duration: 0.5 }}
+            className="flex flex-col items-center text-center xl:items-start xl:text-start"
+          >
+            <span className="clash-grotesk text-gradient text-4xl font-semibold tracking-tight xl:text-6xl">
+              {stat.value}
+            </span>
+            <span className="tracking-tight text-muted-foreground xl:text-lg">
+              {stat.label}
+            </span>
+          </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
